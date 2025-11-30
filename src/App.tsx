@@ -39,7 +39,7 @@ const brewRoute = createRoute({
 });
 
 const routeTree = rootRoute.addChildren([homeRoute, newRecipeRoute, brewRoute]);
-const router = createRouter({ routeTree });
+const router = createRouter({ routeTree, basepath: import.meta.env.BASE_URL });
 
 declare module "@tanstack/react-router" {
   interface Register {
