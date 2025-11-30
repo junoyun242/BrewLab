@@ -95,10 +95,10 @@ const Header = () => {
             variant="subtle"
             leftSection={<IconNotebook size={16} />}
             component={Link}
-            to="/recipes"
+            to="/new-recipe"
             onClick={() => setOpen(false)}
           >
-            Recipes
+            New
           </Button>
           <Divider />
           <Text size="xs" c="dimmed">
