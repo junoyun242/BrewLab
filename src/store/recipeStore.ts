@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { IRecipe } from "../types/recipe";
-import { v4 as uuidv4 } from "uuid";
+import { generateId } from "../utils";
 
 interface RecipeStore {
   recipes: IRecipe[];
@@ -12,8 +12,6 @@ interface RecipeStore {
   getRecipes: () => IRecipe[];
   clearAll: () => void;
 }
-
-const generateId = () => (crypto?.randomUUID ? crypto.randomUUID() : uuidv4());
 
 export const useRecipeStore = create<RecipeStore>()(
   persist(
