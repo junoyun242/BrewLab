@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# BrewLab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BrewLab is a lightweight coffee–brewing companion designed for home baristas who want precision without complexity.  
+It lets you create, manage, and run custom brew recipes for V60, AeroPress, Kalita, French Press, Espresso, and other methods.  
+Each recipe is broken into timed steps, and BrewLab guides you through the entire process with a clean interface, sound cues, and vibration feedback.
 
-Currently, two official plugins are available:
+BrewLab runs entirely in the browser and stores all data locally, so your recipes stay private and instantly accessible on any device.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Custom Recipe Builder
 
-## Expanding the ESLint configuration
+Create your own brew recipes with as many steps as you need. Each step includes:  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Step text  
+- Duration in seconds  
+- Optional brewer type (V60, AeroPress, Chemex, etc.)  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Recipes automatically record `createdAt`, `updatedAt`, and `lastUsedAt` timestamps.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Guided Brew Mode
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run your recipe using a step-by-step brewing interface:  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Automatic countdown timers  
+- Manual next/previous controls  
+- Accurate drift-proof timing  
+- Haptic feedback and audio cues when steps end  
+- Total brew time display and progress indicator  
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The brew mode updates the recipe’s last-used timestamp so your most-used methods appear first on the home screen.
+
+---
+
+### Local Storage Persistence
+
+All recipes are saved directly into the browser using a zustand + localStorage store.  
+Nothing is uploaded or synced externally.
+
+---
+
+### Import & Export
+
+Export all recipes as a `.json` file or import them back into any device running BrewLab.  
+This allows manual backup or sharing without external services.
+
+---
+
+### Sorting and Organization
+
+Recipes are automatically sorted by `lastUsedAt`, putting your most frequently brewed methods at the top.
+
+---
+
+### Optional Timer
+
+A standalone mechanical-style knob timer exists as an additional utility.
+
+---
+
+## Tech Stack
+
+- React  
+- TypeScript  
+- Vite  
+- zustand (with persistence layer)  
+- Mantine UI  
+- TanStack Router  
+- LocalStorage for data  
+
+---
+
+## Philosophy
+
+BrewLab is built for people who want a structured but flexible brewing workflow.  
+Instead of forcing predefined recipes, BrewLab helps you design your own and then executes them with precision.  
+The goal is to bring clarity, focus, and repeatability to your pour-over or immersion routines without turning your phone into another distraction.
+
+---
+
