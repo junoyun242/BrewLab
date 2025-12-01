@@ -1,7 +1,9 @@
 # BrewLab
 
 BrewLab is a lightweight coffee–brewing companion designed for home baristas who want precision without complexity.  
+
 It lets you create, manage, and run custom brew recipes for V60, AeroPress, Kalita, French Press, Espresso, and other methods.  
+
 Each recipe is broken into timed steps, and BrewLab guides you through the entire process with a clean interface, sound cues, and vibration feedback.
 
 BrewLab runs entirely in the browser and stores all data locally, so your recipes stay private and instantly accessible on any device.
@@ -77,7 +79,9 @@ A standalone mechanical-style knob timer exists as an additional utility.
 ## Philosophy
 
 BrewLab is built for people who want a structured but flexible brewing workflow.  
+
 Instead of forcing predefined recipes, BrewLab helps you design your own and then executes them with precision.  
+
 The goal is to bring clarity, focus, and repeatability to your pour-over or immersion routines without turning your phone into another distraction.
 
 ---
