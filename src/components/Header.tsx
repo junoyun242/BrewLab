@@ -26,7 +26,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <AppShell header={{ height: 64 }}>
       <AppShell.Header>
         <Container size="xs" h="100%">
           <Group h="100%" justify="space-between" align="center">
@@ -100,13 +100,22 @@ const Header = () => {
           >
             New
           </Button>
+          <Button
+            variant="subtle"
+            leftSection={<IconNotebook size={16} />}
+            component={Link}
+            to="/timer"
+            onClick={() => setOpen(false)}
+          >
+            Timer
+          </Button>
           <Divider />
           <Text size="xs" c="dimmed">
             Brew better. Stay analog.
           </Text>
         </Stack>
       </Drawer>
-    </>
+    </AppShell>
   );
 };
 

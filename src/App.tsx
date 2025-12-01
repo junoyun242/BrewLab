@@ -10,6 +10,7 @@ import Home from "./routes/Home";
 import Root from "./routes/Root";
 import NewRecipe from "./routes/NewRecipe";
 import BrewPage from "./routes/Brew";
+import TimerPage from "./routes/Timer";
 
 const theme = createTheme({
   defaultRadius: "lg",
@@ -38,7 +39,18 @@ const brewRoute = createRoute({
   component: BrewPage,
 });
 
-const routeTree = rootRoute.addChildren([homeRoute, newRecipeRoute, brewRoute]);
+const timerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/timer",
+  component: TimerPage,
+});
+
+const routeTree = rootRoute.addChildren([
+  homeRoute,
+  newRecipeRoute,
+  brewRoute,
+  timerRoute,
+]);
 const router = createRouter({ routeTree, basepath: import.meta.env.BASE_URL });
 
 declare module "@tanstack/react-router" {
